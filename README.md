@@ -32,4 +32,23 @@ npm install
 
 ## Deploy
 
-Build and host the `dist/` folder on any static host (GitHub Pages, Netlify, Vercel, etc.). Ensure the site is served over **HTTPS** so the `clipboard` API works for copy actions.
+**Live site:** [https://cartesiskills.netlify.app](https://cartesiskills.netlify.app)
+
+Configuration lives in [`netlify.toml`](netlify.toml): `npm run build`, publish `dist/`, Node 20.
+
+### Netlify CLI (manual production deploy)
+
+```sh
+npm run build
+netlify deploy --prod
+```
+
+Requires a linked project (`netlify link`) and Netlify CLI login (`netlify login`).
+
+### Continuous deploy from GitHub
+
+1. Open [Netlify → cartesiskills](https://app.netlify.com/projects/cartesiskills) → **Site configuration** → **Build & deploy** → **Configure**.
+2. **Link repository** → choose **GitHub** → `riseandshaheen/cartesi-skills-site`, branch `main`.
+3. Build settings are read from `netlify.toml` (build command `npm run build`, publish directory `dist`).
+
+Use **HTTPS** in production so the **clipboard** API works for copy actions.
