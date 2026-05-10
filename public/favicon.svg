@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="8" fill="#e8f4fc"/>
+  <text
+    x="16"
+    y="16"
+    text-anchor="middle"
+    dominant-baseline="central"
+    font-size="20"
+    font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, emoji, sans-serif"
+  >🐧</text>
+</svg>

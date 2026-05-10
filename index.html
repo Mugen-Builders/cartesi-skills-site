@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cartesi Skills — curated agent instructions for Rollups v2 backends, frontends, contracts, deploy, and local dev."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cartesi Skills</title>
+  </head>
+  <body>
+    <header class="hero" role="banner">
+      <div class="hero__media" aria-hidden="true"></div>
+      <div class="hero__scrim"></div>
+      <div class="hero__inner">
+        <h1 class="hero__title">Cartesi Skills</h1>
+        <p class="hero__tagline">
+          Equip your AI agent with
+          <a
+            class="hero__tagline-link"
+            href="http://skill.md/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >SKILL.md</a
+          >
+          files for Cartesi Rollups v2. Build and ship full-stack Cartesi applications quickly.
+        </p>
+        <div class="install" aria-label="Install command">
+          <div class="install__code-bar">
+            <code class="install__code" id="install-command"
+              >npx skills add https://github.com/Mugen-Builders/cartesi-skills</code
+            >
+            <button
+              type="button"
+              class="install__copy-icon"
+              id="copy-install"
+              aria-label="Copy install command"
+              title="Copy"
+            >
+              <svg
+                class="install__icon install__icon--copy"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <rect
+                  x="8"
+                  y="8"
+                  width="14"
+                  height="14"
+                  rx="2"
+                  ry="2"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <svg
+                class="install__icon install__icon--check"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20 6L9 17l-5-5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="skills" id="skills">
+      <div class="skills__intro">
+        <h2>Skills</h2>
+        <p>
+          Each skill is a focused instruction set for coding agents (Cursor, Claude Code, and
+          similar). Attach the skill that matches your task so the model loads the right contracts,
+          tooling, and checklists before it writes code.
+        </p>
+      </div>
+
+      <ul class="card-grid">
+        <li class="card-li">
+          <button type="button" class="card" data-skill="cartesi-backend-core" aria-label="Open Backend core — full SKILL.md">
+            <h3 class="card__title">Backend core</h3>
+            <p class="card__id"><code>cartesi-backend-core</code></p>
+            <p class="card__desc">
+              Language-agnostic rules for deterministic state, advance/inspect semantics, payload
+              contracts, outputs, and the <code>/finish</code> loop under replay.
+            </p>
+          </button>
+        </li>
+
+        <li class="card-li">
+          <button type="button" class="card" data-skill="cartesi-js-backend" aria-label="Open JS / TypeScript backend — full SKILL.md">
+            <h3 class="card__title">JS / TypeScript backend</h3>
+            <p class="card__id"><code>cartesi-js-backend</code></p>
+            <p class="card__desc">
+              Node.js backends: finish loop integration, typed payloads, advance/inspect handlers,
+              emitters, and tests aligned with Rollups v2.
+            </p>
+          </button>
+        </li>
+
+        <li class="card-li">
+          <button type="button" class="card" data-skill="cartesi-python-backend" aria-label="Open Python backend — full SKILL.md">
+            <h3 class="card__title">Python backend</h3>
+            <p class="card__id"><code>cartesi-python-backend</code></p>
+            <p class="card__desc">
+              Python backends with production-shaped modules: handlers, codecs, state, vouchers/notices/reports, and tests.
+            </p>
+          </button>
+        </li>
+
+        <li class="card-li">
+          <button type="button" class="card" data-skill="cartesi-frontend" aria-label="Open Frontend app — full SKILL.md">
+            <h3 class="card__title">Frontend app</h3>
+            <p class="card__id"><code>cartesi-frontend</code></p>
+            <p class="card__desc">
+              React/Next/Angular-style apps: wagmi/viem, InputBox inputs, JSON-RPC reads, config validation, optional bridging.
+            </p>
+          </button>
+        </li>
+
+        <li class="card-li">
+          <button type="button" class="card" data-skill="cartesi-l1-contracts" aria-label="Open L1 contracts — full SKILL.md">
+            <h3 class="card__title">L1 contracts</h3>
+            <p class="card__id"><code>cartesi-l1-contracts</code></p>
+            <p class="card__desc">
+              Solidity next to InputBox: payload encoding, access control, Foundry tests and deployment scripts.
+            </p>
+          </button>
+        </li>
+
+        <li class="card-li">
+          <button type="button" class="card" data-skill="cartesi-deploy" aria-label="Open Deploy &amp; operate — full SKILL.md">
+            <h3 class="card__title">Deploy &amp; operate</h3>
+            <p class="card__id"><code>cartesi-deploy</code></p>
+            <p class="card__desc">
+              Build artifacts, register applications, capture addresses, local/forked/self-hosted nodes, and deployment troubleshooting.
+            </p>
+          </button>
+        </li>
+
+        <li class="card-li">
+          <button type="button" class="card" data-skill="cartesi-local-dev" aria-label="Open Local development — full SKILL.md">
+            <h3 class="card__title">Local development</h3>
+            <p class="card__id"><code>cartesi-local-dev</code></p>
+            <p class="card__desc">
+              Fast inner loop: <code>cartesi build</code> / <code>run</code>, fork mode, inspect smoke tests, RPC alignment, common failures.
+            </p>
+          </button>
+        </li>
+      </ul>
+    </main>
+
+    <footer class="site-footer">
+      <a
+        class="site-footer__link"
+        href="https://github.com/Mugen-Builders/cartesi-skills"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg class="site-footer__github-icon" width="28" height="28" viewBox="0 0 98 96" aria-hidden="true">
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.225-22.23-5.42-22.23-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+          />
+        </svg>
+        <span class="site-footer__label">Mugen-Builders / cartesi-skills</span>
+      </a>
+    </footer>
+
+    <dialog class="skill-modal" id="skill-modal" aria-labelledby="skill-modal-title">
+      <div class="skill-modal__shell">
+        <div class="skill-modal__header">
+          <h2 class="skill-modal__title" id="skill-modal-title">Skill</h2>
+          <div class="skill-modal__actions">
+            <a
+              class="skill-modal__contribute"
+              id="skill-modal-contribute"
+              href="https://github.com/Mugen-Builders/cartesi-skills"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Contribute</a
+            >
+            <button type="button" class="skill-modal__copy" id="skill-modal-copy" aria-label="Copy full SKILL.md">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect
+                  x="8"
+                  y="8"
+                  width="14"
+                  height="14"
+                  rx="2"
+                  ry="2"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span class="skill-modal__copy-label">Copy</span>
+            </button>
+            <button type="button" class="skill-modal__close" id="skill-modal-close" aria-label="Close">
+              <svg
+                class="skill-modal__close-icon"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M18 6L6 18M6 6l12 12"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="skill-modal__body-wrap">
+          <pre class="skill-modal__pre"><code class="skill-modal__code" id="skill-modal-body"></code></pre>
+        </div>
+      </div>
+    </dialog>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
