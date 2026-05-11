@@ -56,6 +56,10 @@ body:has(.skill-modal[open]) {
   position: absolute;
   inset: 0;
   background-image: url("/ghibli-hero.png");
+  background-image: image-set(
+    url("/ghibli-hero.webp") type("image/webp"),
+    url("/ghibli-hero.png") type("image/png")
+  );
   background-size: cover;
   background-position: center 35%;
 }
