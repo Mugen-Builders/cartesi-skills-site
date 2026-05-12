@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Cartesi Skills — curated agent instructions for Rollups v2 backends, frontends, contracts, deploy, and local dev."
+      content="Cartesi Skills — curated agent instructions for Rollups v2: workflow routing, scaffold, backends, frontend, contracts, local dev, deploy, JSON-RPC, and debug."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -114,6 +114,16 @@
 
       <ul class="card-grid">
         <li class="card-li">
+          <button type="button" class="card" data-skill="cartesi-workflow" aria-label="Open Workflow — full SKILL.md">
+            <h3 class="card__title">Workflow</h3>
+            <p class="card__id"><code>cartesi-workflow</code></p>
+            <p class="card__desc">
+              Starter guide and routing map for a full-stack Cartesi dApp: which phase you are in and which skill to load next. Use when you are unsure where to start.
+            </p>
+          </button>
+        </li>
+
+        <li class="card-li">
           <button type="button" class="card" data-skill="cartesi-scaffold" aria-label="Open Scaffold — full SKILL.md">
             <h3 class="card__title">Scaffold</h3>
             <p class="card__id"><code>cartesi-scaffold</code></p>
@@ -128,69 +138,47 @@
             <h3 class="card__title">Backend core</h3>
             <p class="card__id"><code>cartesi-backend-core</code></p>
             <p class="card__desc">
-              Language-agnostic rules for deterministic state, advance/inspect semantics, payload
-              contracts, outputs, and the <code>/finish</code> loop under replay.
+              Language-agnostic backend: <code>advance_state</code>, <code>inspect_state</code>, payload contracts, outputs, and the <code>/finish</code> loop under replay.
             </p>
           </button>
         </li>
 
         <li class="card-li">
-          <button type="button" class="card" data-skill="cartesi-js-backend" aria-label="Open JS / TypeScript backend — full SKILL.md">
+          <button type="button" class="card" data-skill="cartesi-backend-js-ts" aria-label="Open JS / TypeScript backend — full SKILL.md">
             <h3 class="card__title">JS / TypeScript backend</h3>
-            <p class="card__id"><code>cartesi-js-backend</code></p>
+            <p class="card__id"><code>cartesi-backend-js-ts</code></p>
             <p class="card__desc">
-              Node.js backends: finish loop integration, typed payloads, advance/inspect handlers,
-              emitters, and tests aligned with Rollups v2.
+              Node.js / TypeScript backends: finish loop, typed payloads, advance/inspect handlers, emitters, and tests aligned with Rollups v2 (pair with backend core).
             </p>
           </button>
         </li>
 
         <li class="card-li">
-          <button type="button" class="card" data-skill="cartesi-python-backend" aria-label="Open Python backend — full SKILL.md">
+          <button type="button" class="card" data-skill="cartesi-backend-py" aria-label="Open Python backend — full SKILL.md">
             <h3 class="card__title">Python backend</h3>
-            <p class="card__id"><code>cartesi-python-backend</code></p>
+            <p class="card__id"><code>cartesi-backend-py</code></p>
             <p class="card__desc">
-              Python backends with production-shaped modules: handlers, codecs, state, vouchers/notices/reports, and tests.
+              Python backends: production-shaped modules for handlers, codecs, state, vouchers, notices, reports, and tests (pair with backend core).
             </p>
           </button>
         </li>
 
         <li class="card-li">
-          <button type="button" class="card" data-skill="cartesi-frontend" aria-label="Open Frontend app — full SKILL.md">
-            <h3 class="card__title">Frontend app</h3>
+          <button type="button" class="card" data-skill="cartesi-frontend" aria-label="Open Frontend — full SKILL.md">
+            <h3 class="card__title">Frontend</h3>
             <p class="card__id"><code>cartesi-frontend</code></p>
             <p class="card__desc">
-              React/Next/Angular-style apps: wagmi/viem, InputBox inputs, JSON-RPC reads, config validation, optional bridging.
+              Wallet, InputBox inputs, JSON-RPC reads, inspect, UI conventions, and optional bridging (wagmi/viem and related packages).
             </p>
           </button>
         </li>
 
         <li class="card-li">
-          <button type="button" class="card" data-skill="cartesi-l1-contracts" aria-label="Open L1 contracts — full SKILL.md">
-            <h3 class="card__title">L1 contracts</h3>
-            <p class="card__id"><code>cartesi-l1-contracts</code></p>
+          <button type="button" class="card" data-skill="cartesi-contracts" aria-label="Open Contracts — full SKILL.md">
+            <h3 class="card__title">Contracts</h3>
+            <p class="card__id"><code>cartesi-contracts</code></p>
             <p class="card__desc">
-              Solidity next to InputBox: payload encoding, access control, Foundry tests and deployment scripts.
-            </p>
-          </button>
-        </li>
-
-        <li class="card-li">
-          <button type="button" class="card" data-skill="cartesi-deploy" aria-label="Open Deploy &amp; operate — full SKILL.md">
-            <h3 class="card__title">Deploy &amp; operate</h3>
-            <p class="card__id"><code>cartesi-deploy</code></p>
-            <p class="card__desc">
-              Build artifacts, register applications, capture addresses, local/forked/self-hosted nodes, and deployment troubleshooting.
-            </p>
-          </button>
-        </li>
-
-        <li class="card-li">
-          <button type="button" class="card" data-skill="cartesi-jsonrpc" aria-label="Open JSON-RPC — full SKILL.md">
-            <h3 class="card__title">JSON-RPC</h3>
-            <p class="card__id"><code>cartesi-jsonrpc</code></p>
-            <p class="card__desc">
-              Call a running node's JSON-RPC 2.0 API (port 10011): method reference, request patterns, and TypeScript-shaped types.
+              Solidity / Foundry next to InputBox: payload encoding, asset portals, voucher execution, access control, tests, and deployment scripts.
             </p>
           </button>
         </li>
@@ -200,7 +188,27 @@
             <h3 class="card__title">Local development</h3>
             <p class="card__id"><code>cartesi-local-dev</code></p>
             <p class="card__desc">
-              Fast inner loop: <code>cartesi build</code> / <code>run</code>, fork mode, inspect smoke tests, RPC alignment, common failures.
+              Local and forked workflow: <code>cartesi build</code> / <code>run</code>, advance/inspect, devnet tokens, forked-chain testing, and common failures.
+            </p>
+          </button>
+        </li>
+
+        <li class="card-li">
+          <button type="button" class="card" data-skill="cartesi-deploy" aria-label="Open Deploy &amp; operate — full SKILL.md">
+            <h3 class="card__title">Deploy &amp; operate</h3>
+            <p class="card__id"><code>cartesi-deploy</code></p>
+            <p class="card__desc">
+              Self-hosted deployment and operations: artifacts, registration, addresses, and the full Docker Compose–based rollout flow.
+            </p>
+          </button>
+        </li>
+
+        <li class="card-li">
+          <button type="button" class="card" data-skill="cartesi-jsonrpc" aria-label="Open JSON-RPC — full SKILL.md">
+            <h3 class="card__title">JSON-RPC</h3>
+            <p class="card__id"><code>cartesi-jsonrpc</code></p>
+            <p class="card__desc">
+              Query a running node over JSON-RPC 2.0 (port 10011): methods, request patterns, and TypeScript-oriented types.
             </p>
           </button>
         </li>
@@ -210,7 +218,7 @@
             <h3 class="card__title">Debug</h3>
             <p class="card__id"><code>cartesi-debug</code></p>
             <p class="card__desc">
-              Diagnose failures across the stack: symptoms by layer (CLI, node, contracts, frontend, vouchers) and targeted fixes.
+              Diagnose errors across the Cartesi stack, organised by layer and symptom, with concrete fixes.
             </p>
           </button>
         </li>
@@ -294,7 +302,7 @@
           </div>
         </div>
         <div class="skill-modal__body-wrap">
-          <pre class="skill-modal__pre"><code class="skill-modal__code" id="skill-modal-body"></code></pre>
+          <div class="skill-modal__md" id="skill-modal-body"></div>
         </div>
       </div>
     </dialog>

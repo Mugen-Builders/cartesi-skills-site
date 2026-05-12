@@ -1,8 +1,42 @@
 import "./style.css";
+import DOMPurify from "dompurify";
+import { marked } from "marked";
 import {
   fetchSkillMarkdown,
   skillContributeUrl,
 } from "./skillRemote.js";
+
+marked.use({
+  gfm: true,
+});
+
+DOMPurify.addHook("afterSanitizeAttributes", (node) => {
+  if (node.nodeName !== "A") return;
+  const href = node.getAttribute("href");
+  if (!href || !/^https?:\/\//i.test(href)) return;
+  node.setAttribute("target", "_blank");
+  node.setAttribute("rel", "noopener noreferrer");
+});
+
+/**
+ * Cursor / agent skills use YAML frontmatter (--- … ---) for name and description.
+ * A markdown renderer treats that as headings, HRs, blockquotes, etc., so we drop
+ * it for display only. Clipboard copy still uses the full file from the network.
+ *
+ * @param {string} markdown
+ * @returns {string}
+ */
+function stripLeadingYamlFrontmatter(markdown) {
+  return markdown.replace(/^---\s*\r?\n[\s\S]*?\r?\n---\s*(?:\r?\n|$)/, "");
+}
+
+/**
+ * @param {string} markdown
+ * @returns {string}
+ */
+function markdownToSafeHtml(markdown) {
+  return DOMPurify.sanitize(marked.parse(markdown));
+}
 
 const INSTALL =
   "npx skills add https://github.com/Mugen-Builders/cartesi-skills";
@@ -55,7 +89,7 @@ let skillFetchAbort = null;
 function setModalLoading(isLoading) {
   modal?.setAttribute("aria-busy", isLoading ? "true" : "false");
   if (modalBody) {
-    modalBody.classList.toggle("skill-modal__code--loading", isLoading);
+    modalBody.classList.toggle("skill-modal__md--loading", isLoading);
   }
   if (modalCopy) {
     modalCopy.disabled = isLoading || !openSkillMarkdown;
@@ -78,7 +112,10 @@ function openSkillModal(skillId, displayTitle) {
   }
 
   modalTitle.textContent = `${displayTitle} — SKILL.md`;
-  modalBody.textContent = "Loading…";
+  if (modalBody) {
+    modalBody.classList.remove("skill-modal__md--error");
+    modalBody.textContent = "Loading…";
+  }
   openSkillMarkdown = null;
   setModalLoading(true);
 
@@ -90,13 +127,17 @@ function openSkillModal(skillId, displayTitle) {
     try {
       const text = await fetchSkillMarkdown(skillId, { signal: ac.signal });
       if (ac.signal.aborted) return;
-      modalBody.textContent = text;
+      modalBody.classList.remove("skill-modal__md--error");
+      modalBody.innerHTML = markdownToSafeHtml(
+        stripLeadingYamlFrontmatter(text),
+      );
       openSkillMarkdown = text;
     } catch (e) {
       if (e instanceof Error && e.name === "AbortError") return;
       if (ac.signal.aborted) return;
       const msg =
         e instanceof Error ? e.message : "Something went wrong loading SKILL.md.";
+      modalBody.classList.add("skill-modal__md--error");
       modalBody.textContent = `Could not load SKILL.md.\n\n${msg}\n\nUse Contribute to open the file on GitHub, or try again later.`;
       openSkillMarkdown = null;
     } finally {
@@ -122,7 +163,8 @@ function closeSkillModal() {
   }
   modal?.setAttribute("aria-busy", "false");
   if (modalBody) {
-    modalBody.classList.remove("skill-modal__code--loading");
+    modalBody.classList.remove("skill-modal__md--loading");
+    modalBody.textContent = "";
   }
 }
 

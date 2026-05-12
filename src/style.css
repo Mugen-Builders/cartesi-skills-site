@@ -470,22 +470,167 @@ body:has(.skill-modal[open]) {
   padding: 1rem 1.25rem 1.25rem;
 }
 
-.skill-modal__pre {
-  margin: 0;
-  white-space: pre-wrap;
-  word-break: break-word;
+.skill-modal__md {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text);
+  overflow-wrap: anywhere;
 }
 
-.skill-modal__code {
+.skill-modal__md--loading {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.skill-modal__md--error {
+  white-space: pre-wrap;
+  font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, monospace;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.skill-modal__md > *:first-child {
+  margin-top: 0;
+}
+
+.skill-modal__md > *:last-child {
+  margin-bottom: 0;
+}
+
+.skill-modal__md h1,
+.skill-modal__md h2,
+.skill-modal__md h3,
+.skill-modal__md h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--forest);
+  line-height: 1.25;
+  margin: 1.35rem 0 0.5rem;
+}
+
+.skill-modal__md h1 {
+  font-size: 1.45rem;
+}
+
+.skill-modal__md h2 {
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 0.25rem;
+}
+
+.skill-modal__md h3 {
+  font-size: 1.05rem;
+}
+
+.skill-modal__md h4 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.skill-modal__md p {
+  margin: 0.65rem 0;
+}
+
+.skill-modal__md a {
+  color: var(--sunset-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.skill-modal__md a:hover {
+  color: var(--forest);
+}
+
+.skill-modal__md ul,
+.skill-modal__md ol {
+  margin: 0.65rem 0;
+  padding-left: 1.35rem;
+}
+
+.skill-modal__md li {
+  margin: 0.25rem 0;
+}
+
+.skill-modal__md li > p {
+  margin: 0.35rem 0;
+}
+
+.skill-modal__md blockquote {
+  margin: 0.75rem 0;
+  padding: 0.5rem 0.85rem;
+  border-left: 4px solid rgba(224, 122, 58, 0.55);
+  background: rgba(224, 122, 58, 0.08);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color: var(--text-muted);
+}
+
+.skill-modal__md blockquote p {
+  margin: 0.35rem 0;
+}
+
+.skill-modal__md hr {
+  border: none;
+  border-top: 1px solid var(--card-border);
+  margin: 1.25rem 0;
+}
+
+.skill-modal__md :not(pre) > code {
+  font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, monospace;
+  font-size: 0.86em;
+  padding: 0.12rem 0.38rem;
+  border-radius: 5px;
+  background: rgba(26, 61, 52, 0.08);
+  color: var(--forest-soft);
+}
+
+.skill-modal__md pre {
+  margin: 0.75rem 0;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(26, 45, 38, 0.06);
+  border: 1px solid var(--card-border);
+  overflow-x: auto;
   font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, monospace;
   font-size: 0.82rem;
   line-height: 1.5;
-  color: var(--text);
 }
 
-.skill-modal__code--loading {
-  color: var(--text-muted);
-  font-style: italic;
+.skill-modal__md pre code {
+  font-size: inherit;
+  padding: 0;
+  background: none;
+  color: var(--text);
+  border-radius: 0;
+}
+
+.skill-modal__md table {
+  width: 100%;
+  margin: 0.85rem 0;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.skill-modal__md th,
+.skill-modal__md td {
+  border: 1px solid var(--card-border);
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.skill-modal__md th {
+  background: rgba(26, 61, 52, 0.07);
+  font-weight: 600;
+  color: var(--forest);
+}
+
+.skill-modal__md img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
 }
 
 .skill-modal__copy:disabled {
