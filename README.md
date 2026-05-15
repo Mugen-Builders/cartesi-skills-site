@@ -32,11 +32,16 @@ npm install
 
 ## Deploy
 
-**Live site:** [https://cartesiskills.netlify.app](https://cartesiskills.netlify.app)
+| Environment | URL |
+| ----------- | --- |
+| **Production** | [https://skills.mugen.builders](https://skills.mugen.builders) |
+| **Staging** | [https://cartesiskills.netlify.app](https://cartesiskills.netlify.app) |
 
-Configuration lives in [`netlify.toml`](netlify.toml): `npm run build`, publish `dist/`, Node 20.
+Production deploys from [`Mugen-Builders/cartesi-skills-site`](https://github.com/Mugen-Builders/cartesi-skills-site) `main` via [GitHub Pages](.github/workflows/deploy.yml) (`npm run build` → `dist/`).
 
-### Netlify CLI (manual production deploy)
+Staging uses Netlify ([`netlify.toml`](netlify.toml)): `npm run build`, publish `dist/`, Node 20.
+
+### Netlify CLI (manual staging deploy)
 
 ```sh
 npm run build
